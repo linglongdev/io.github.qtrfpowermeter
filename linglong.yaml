@@ -1,0 +1,28 @@
+version: "1"
+
+package:
+  id: io.github.qtrfpowermeter
+  name: qtrfpowermeter
+  version: 0.0.2.0
+  kind: app
+  description: |
+    improve usage of chinese RF power meter RF8000 as default application is terrible with no functionality and lot of crashes
+
+command:
+  - /opt/apps/io.github.qtrfpowermeter/files/bin/qtrfpowermeter
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/coozoo/qtrfpowermeter.git
+    version: master
+    commit: b877777d6255e9526c567671469c237a41f409e9
+
+build: |
+  cd /project/linglong/sources/qtrfpowermeter.git
+  git apply ../../../0001-install.patch
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make
+  make install

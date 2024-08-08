@@ -1,0 +1,32 @@
+From 20a95ac55d8dfee338f7d9529c6cf413db417a9b Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Wed, 7 Aug 2024 19:13:53 +0800
+Subject: [PATCH] install
+
+---
+ rf8000.pro | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/rf8000.pro b/rf8000.pro
+index 5e71fb2..3a52404 100644
+--- a/rf8000.pro
++++ b/rf8000.pro
+@@ -49,11 +49,11 @@ RESOURCES += \
+ # !isEmpty(target.path): INSTALLS += target
+ 
+ binary.files += $$TARGET
+-binary.path = /usr/bin
++binary.path = $$PREFIX/bin
+ translations.files += ./translations/$$files(*.qm/*.qm,true)
+-translations.path = /usr/share/$$TARGET
++translations.path = $$PREFIX/share/$$TARGET
+ icon.files += images/qtrfpowermeter.svg
+-icon.path += /usr/share/icons/hicolor/scalable/apps
++icon.path += $$PREFIX/share/icons/hicolor/scalable/apps
+ desktop.files += $${TARGET}.desktop
+-desktop.path += /usr/share/applications/
++desktop.path += $$PREFIX/share/applications/
+ INSTALLS += binary translations icon desktop
+-- 
+2.43.4
+
